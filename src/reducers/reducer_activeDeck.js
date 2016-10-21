@@ -1,8 +1,12 @@
-export default function() {
+// all reducers get 2 params: state, action
+// state param is not application state, only the state this reducer is responsible for
+export default function(state = null, action) {
 
-	return [
-		{ question: 'What is your name?', answer: 'jenna' },
-		{ question: 'What is a smart component in Redux?', answer: 'A smart component is a component with direct access to the state.' },
-		{ question: 'What is a container in Redux?', answer: 'A container is a component with direct access to state.' }
-	]
+	switch (action.type) {
+		case 'DECK_SELECTED': 
+			return action.payload;
+	}
+
+	// q: important not to mutate our state?
+	return state;
 }
