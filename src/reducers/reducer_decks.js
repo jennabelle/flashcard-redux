@@ -1,7 +1,7 @@
 // Q: why isn't state and action passed in here?
-export default function() {
+import { ADD_DECK } from '../actions/index';
 
-	return [
+const demoData = [
 		{
 			id: 1,
 			title: 'Test Your React.js Knowledge!',
@@ -38,5 +38,15 @@ export default function() {
 				{ question: 'What is a container in Redux?', answer: 'A container is a component with direct access to state.' }
 			]
 		}
-	];
+];
+
+export default function(state = demoData, action) {
+
+	switch (action.type) {
+
+		case ADD_DECK:
+			return [ action.payload, ...state ]; // ok to concat, do not push!
+	}
+	
+	return state;
 }
