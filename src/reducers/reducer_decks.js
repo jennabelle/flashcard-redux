@@ -3,7 +3,8 @@ export default function() {
 
 	return [
 		{
-			title: 'Deck 1',
+			id: 1,
+			title: 'Test Your React.js Knowledge!',
 			cards: [
 				{ question: 'What is your name?', answer: 'jenna' },
 				{ question: 'What is a smart component in Redux?', answer: 'A smart component is a component with direct access to the state.' },
@@ -11,7 +12,8 @@ export default function() {
 			]
 		},
 		{
-			title: 'Deck 2',
+			id: 2,
+			title: 'How much Redux do you know?',
 			cards: [
 				{ question: 'What is your name?', answer: 'jenna' },
 				{ question: 'What is a smart component in Redux?', answer: 'A smart component is a component with direct access to the state.' },
@@ -19,7 +21,8 @@ export default function() {
 			]
 		},
 		{
-			title: 'Deck 3',
+			id: 3,
+			title: 'Computer Science 101',
 			cards: [
 				{ question: 'What is your name?', answer: 'jenna' },
 				{ question: 'What is a smart component in Redux?', answer: 'A smart component is a component with direct access to the state.' },
@@ -27,7 +30,8 @@ export default function() {
 			]
 		},
 		{
-			title: 'Deck 4',
+			id: 4,
+			title: 'Computer Science 201',
 			cards: [
 				{ question: 'What is your name?', answer: 'jenna' },
 				{ question: 'What is a smart component in Redux?', answer: 'A smart component is a component with direct access to the state.' },

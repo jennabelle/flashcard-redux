@@ -1,8 +1,31 @@
-export function selectDeck(deck) {
+// deck id starts at 4
+let nextDeckId = 4;
 
-	// selectDeck is an ActionCreator, it needs to return an action, an object w a type property.
+export const DECK_SELECTED = 'DECK_SELECTED';
+export const ADD_DECK = 'ADD_DECK';
+export const ADD_CARD = 'ADD_CARD';
+
+export const addDeck = (deck) => {
+
+	// append new deck to deck list
+
 	return {
-		type: 'DECK_SELECTED', // needs to be const
+		type: ADD_DECK,
+		id: nextDeckId++,
 		payload: deck
-	};
+	}
+}
+
+export const addCard = (card, deck) => {
+	return {
+		type: ADD_CARD,
+		payload: card, deck
+	}
+}
+
+export const setActiveDeck = (deck) => {
+	return {
+		type: DECK_SELECTED,
+		payload: deck
+	}
 }

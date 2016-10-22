@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { selectDeck } from '../actions/index';
+import { setActiveDeck } from '../actions/index';
 import { bindActionCreators } from 'redux';
 
 class DeckList extends Component {
@@ -11,31 +11,31 @@ class DeckList extends Component {
 				<li 
 					key={ deck.title }
 					onClick={ () => this.props.selectDeck(deck) }
-					className='list-group-item'>{ deck.title } 
+					className='list-group-item'>{ deck.title } ({ deck.cards.length })
 				</li>
 			)
 		});
 	}
 	render() {
 		return (
-			<ul className='list-group col-sm-2'>
-				{ this.renderDecks() }
-			</ul>
+			<div>
+				<h2>Flashcard</h2>
+				<ul className='list-group col-sm-3'>
+					{ this.renderDecks() }
+					<h2>+</h2>
+				</ul>
+			</div>
 		)
 	}
 }
+
 function mapStateToProps(state) {
  	return {
  		decks: state.decks
  	};
 }
 function mapDispatchToProps(dispatch) {
-	// whenever 'selectDeck' is called, you're calling the action creator, and the result should be 
-	// passed to all of our reducers
-	return bindActionCreators({ selectDeck: selectDeck }, dispatch);
+	return bindActionCreators({ selectDeck: setActiveDeck }, dispatch);
 }
 
-// produces a container
-// Promote Decklist from a component to a container- it needs to know about this new dispatch method,
-// selectDeck. Make it available as a prop.
 export default connect(mapStateToProps, mapDispatchToProps)(DeckList);
