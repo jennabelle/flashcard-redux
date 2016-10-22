@@ -24,9 +24,9 @@ Go to:
 ###Tech Stack
 
     React
-    Redux
     React-router
     React-flipcard
+    Redux-form
     ES6
     Node.js
     Babel

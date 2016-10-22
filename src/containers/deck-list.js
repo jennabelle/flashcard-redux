@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setActiveDeck } from '../actions/index';
 import { bindActionCreators } from 'redux';
+import { Link } from 'react-router';
 
 class DeckList extends Component {
 
@@ -19,10 +20,10 @@ class DeckList extends Component {
 	render() {
 		return (
 			<div>
-				<h2>Flashcard</h2>
+				<h2>Flashcards</h2>
 				<ul className='list-group col-sm-3'>
 					{ this.renderDecks() }
-					<h2>+</h2>
+					<Link to='/decks/new'><h2>+</h2></Link>
 				</ul>
 			</div>
 		)
