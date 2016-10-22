@@ -23,7 +23,7 @@ class DeckDetail extends Component {
 			<div className='col-md-8'>
 				<h3>{ this.props.deck.title }</h3>
 				<b>Total Cards: </b>{ this.props.deck.cards.length }<br /><br />
-				<Link to='/decks/cards/new'><h5>Add New Card</h5></Link><a href=''><h5>Quiz Yourself!</h5></a><br />
+				<Link to='/decks/cards/new'><h5>Add New Card</h5></Link><Link to='/decks/quiz'><h5>Quiz Yourself!</h5></Link><br />
 				<div>
 					<ul>
 						{ this.renderDeckDetail() }

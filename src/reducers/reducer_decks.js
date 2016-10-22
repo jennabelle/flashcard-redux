@@ -1,4 +1,3 @@
-// Q: why isn't state and action passed in here?
 import { ADD_DECK, ADD_CARD } from '../actions/index';
 
 const demoData = [

@@ -1,14 +1,17 @@
 // all reducers get 2 params: state, action
 // state param is not application state, only the state this reducer is responsible for
-import { DECK_SELECTED } from '../actions/index';
+import { DECK_SELECTED, ADD_SCORE, SHUFFLE_DECK } from '../actions/index';
 
 export default function(state = null, action) {
 
 	switch (action.type) {
 		case DECK_SELECTED: 
 			return action.payload; // don't mutate state!!
+		case ADD_SCORE:
+			return action.payload;
+		case SHUFFLE_DECK:
+			return action.payload;
 	}
 
-	// q: important not to mutate our state?
 	return state;
 }
