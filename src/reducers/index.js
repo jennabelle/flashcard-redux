@@ -6,8 +6,7 @@ import { reducer as formReducer } from 'redux-form';
 const rootReducer = combineReducers({
 	
   decks: Decks,
-  activeDeck: ActiveDeck,
-  form: formReducer
+  activeDeck: ActiveDeck
 });
 
 export default rootReducer;

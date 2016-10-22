@@ -1,5 +1,5 @@
 // Q: why isn't state and action passed in here?
-import { ADD_DECK } from '../actions/index';
+import { ADD_DECK, ADD_CARD } from '../actions/index';
 
 const demoData = [
 		{
@@ -46,7 +46,18 @@ export default function(state = demoData, action) {
 
 		case ADD_DECK:
 			return [ action.payload, ...state ]; // ok to concat, do not push!
+
+		case ADD_CARD:
+
+			var newState = state.map( obj => {
+				if ( obj.id === action.payload.activeDeck.id ) {
+					obj.cards.push(action.payload.card);
+				}
+				return obj;
+			});
+
+			return newState;
 	}
-	
+
 	return state;
 }

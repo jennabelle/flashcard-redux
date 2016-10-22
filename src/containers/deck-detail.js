@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
+import CardsNew from './add-card';
 
 class DeckDetail extends Component {
 
 	renderDeckDetail() {
+
 		return this.props.deck.cards.map( card => {
 			return (
 				<li key={ card.question }>{ card.question }</li>
@@ -17,17 +20,17 @@ class DeckDetail extends Component {
 		}
 
 		return (
-			<div>
+			<div className='col-md-8'>
 				<h3>{ this.props.deck.title }</h3>
-				<b>Total Cards: </b>{ this.props.deck.cards.length } <span>Quiz Yourself!</span><br /><br />
-				<h5>Add New Card</h5>
+				<b>Total Cards: </b>{ this.props.deck.cards.length }<br /><br />
+				<Link to='/decks/cards/new'><h5>Add New Card</h5></Link><a href=''><h5>Quiz Yourself!</h5></a><br />
 				<div>
 					<ul>
 						{ this.renderDeckDetail() }
 					</ul>
 				</div>
 			</div>
-		);
+		)
 	}
 }
 

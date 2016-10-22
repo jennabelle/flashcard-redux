@@ -19,9 +19,9 @@ class DeckList extends Component {
 	}
 	render() {
 		return (
-			<div>
+			<div className='col-md-4'>
 				<h2>Flashcards</h2>
-				<ul className='list-group col-sm-3'>
+				<ul className='list-group'>
 					{ this.renderDecks() }
 					<Link to='/decks/new'><h2>+</h2></Link>
 				</ul>

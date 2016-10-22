@@ -8,7 +8,7 @@ export const ADD_CARD = 'ADD_CARD';
 export const addDeck = (deck) => {
 
 	// append new deck to deck list
-	console.log('inside action creator! deck: ', deck);
+
 	var id = nextDeckId++;
 
 	return {
@@ -18,10 +18,10 @@ export const addDeck = (deck) => {
 	}
 }
 
-export const addCard = (card, deck) => {
+export const addCard = (card, activeDeck) => {
 	return {
 		type: ADD_CARD,
-		payload: card, deck
+		payload: { card, activeDeck }
 	}
 }
 
