@@ -36,9 +36,7 @@ export const setActiveDeck = deck => {
 	}
 }
 
-export const setScore = deck => {
-
-	var newScore = score++;
+export const setScore = newScore => {
 
 	return {
 		type: ADD_SCORE,

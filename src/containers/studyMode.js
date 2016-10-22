@@ -10,19 +10,48 @@ class StudyMode extends Component {
 		super(props);
 
 		this.props.shuffleDeck(this.props.deck);
-		this.state = { index: 0, current: this.props.deck.cards[0] };
-		// this.getOneCard();
+		this.state = { index: 0, current: this.props.deck.cards[0], showAnswer: false };
 	}
 	getOneCard() {
-		this.setState({ current: this.props.deck.cards[ this.state.index ] });
-		this.setState({ index: this.state.index++ });
+		if ( this.state.index === this.props.deck.cards.length ) {
+			browserHistory.push('/');
+		}
+		else {
+			this.setState({ current: this.props.deck.cards[ this.state.index ] });
+			this.setState({ index: this.state.index++ });
+		}
+	}
+	showAnswer() {
+		this.setState({ showAnswer: true });
+	}
+	hideAnswer() {
+		this.setState({ showAnswer: false });
+	}
+	addScore() {
+		var newScore = this.props.currentScore + 1;
+
+		this.props.setScore( newScore );
+		this.getOneCard();
+		this.hideAnswer();
 	}
 	render() {
 
 		return (
 			<div>
-				{ this.state.current.question } <br />
-				<button type='submit' className='btn btn-primary'>Answer</button>
+				<div>
+					{ this.props.currentScore }
+				</div>
+				<br />
+				{ 
+					this.state.showAnswer ? 
+					<div>
+						{ this.state.current.answer }<br />
+						<button type='submit' className='btn btn-primary' onClick={ event => this.addScore() }>Correct</button>
+						<button type='submit' className='btn btn-primary' onClick={ event => this.getOneCard() }>Incorrect</button>
+					</div> 
+					: 
+					<div>{ this.state.current.question }<br /><button type='submit' className='btn btn-primary' onClick={ event => this.showAnswer() }>Show Answer</button></div> 
+				}
 			</div>
 		);
 	}	
@@ -30,7 +59,8 @@ class StudyMode extends Component {
 
 function mapStateToProps(state) {
  	return {
- 		deck: state.activeDeck
+ 		deck: state.activeDeck,
+ 		currentScore: state.currentScore
  	};
 }
 function mapDispatchToProps(dispatch) {
