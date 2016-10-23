@@ -1,5 +1,5 @@
 import React from 'react';
-import Flashcard from 'react-flipcard';
+import FlipCard from 'react-flipcard';
 
 export default (props) => {
 

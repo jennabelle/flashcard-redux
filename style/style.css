@@ -1,11 +1,14 @@
-
-/* deck-list.js */
+/*********************
+	deck-list.js 
+*********************/
 #addNewDeck {
 	text-decoration: none;
 }
 
 
-/* deck-detail.js */
+/**********************
+	deck-detail.js 
+**********************/
 .addNewCard {
 	float: left;
 }
@@ -16,7 +19,28 @@
 	float: right;
 }
 
-/* final-score.js */
+
+/**********************
+	studyMode.js 
+**********************/
+.studyModeScore {
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+.correctBtn {
+	float: right;
+}
+.incorrectBtn {
+	float: left
+}
+.QApadding {
+	padding-bottom: 100px;
+}
+
+
+/**********************
+	final-score.js 
+**********************/
 .finalScorePadding {
 	padding-top: 50px;
 	padding-bottom: 100px;

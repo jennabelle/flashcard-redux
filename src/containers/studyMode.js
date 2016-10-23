@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { setScore, shuffleDeck } from '../actions/index';
+import Flashcard from '../components/flashcard';
 
 class StudyMode extends Component {
 
@@ -17,7 +18,7 @@ class StudyMode extends Component {
 
 		if ( this.state.cardIndex === this.state.currentDeck['cards'].length - 1 ) {
 
-			// after all cards are shown, reset score, navigate to final score page
+			// after all cards are shown, navigate to final score page
 			browserHistory.push('/decks/quiz/finalScore');
 		}
 		else {
@@ -48,32 +49,41 @@ class StudyMode extends Component {
 
 		return (
 			<div>
-				<div className='row'>
-					<h4>Score: </h4>{ this.props.currentScore }
+				<div className='row studyModeScore'>
+					<div className='col-md-6 col-md-offset-3 text-center'>
+						<h4>Score: </h4>{ this.props.currentScore }
+					</div>
 				</div>
-				<br />
 				{ 
 					this.state.showAnswer 
 
 					? 
 
-					<div>
-						{ this.state.currentDeck.cards[ this.state.cardIndex ]['answer'] }<br />
-						<button type='submit' className='btn btn-primary' onClick={ event => this.addScore() }>
-							Correct
-						</button>
-						<button type='submit' className='btn btn-primary' onClick={ event => this.getNextCard() }>
-							Incorrect
-						</button>
+					<div className='row'>
+						<div className='col-md-6 col-md-offset-3 text-center'>
+							<h3 className='QApadding'>
+								{ this.state.currentDeck.cards[ this.state.cardIndex ]['answer'] }
+							</h3><br />
+							<button type='submit' className='btn btn-primary incorrectBtn' onClick={ event => this.getNextCard() }>
+								I Was Wrong!
+							</button>
+							<button type='submit' className='btn btn-primary correctBtn' onClick={ event => this.addScore() }>
+								Correct!
+							</button>
+						</div>
 					</div> 
 
 					:
 
-					<div>
-						{ this.state.currentDeck.cards[ this.state.cardIndex ]['question'] }<br />
-						<button type='submit' className='btn btn-primary' onClick={ event => this.showAnswer() }>
-							Show Answer
-						</button>
+					<div className='row'>
+						<div className='col-md-6 col-md-offset-3 text-center'>
+							<h3 className='QApadding'>
+								{ this.state.currentDeck.cards[ this.state.cardIndex ]['question'] }
+							</h3><br />
+							<button type='submit' className='btn btn-primary' onClick={ event => this.showAnswer() }>
+								Show Answer
+							</button>
+						</div>
 					</div> 
 				}
 			</div>
