@@ -12,13 +12,16 @@ class StudyMode extends Component {
 		this.props.shuffleDeck(this.props.deck);
 		this.state = { index: 0, current: this.props.deck.cards[0], showAnswer: false };
 	}
-	getOneCard() {
+	getNextCard() {
+
+		console.log('this.state.index: ', this.state.index);
+		
 		if ( this.state.index === this.props.deck.cards.length ) {
 			browserHistory.push('/');
 		}
 		else {
 			this.setState({ current: this.props.deck.cards[ this.state.index ] });
-			this.setState({ index: this.state.index++ });
+			this.setState({ index: this.state.index + 1 });
 		}
 	}
 	showAnswer() {
@@ -31,7 +34,7 @@ class StudyMode extends Component {
 		var newScore = this.props.currentScore + 1;
 
 		this.props.setScore( newScore );
-		this.getOneCard();
+		this.getNextCard();
 		this.hideAnswer();
 	}
 	render() {
@@ -47,7 +50,7 @@ class StudyMode extends Component {
 					<div>
 						{ this.state.current.answer }<br />
 						<button type='submit' className='btn btn-primary' onClick={ event => this.addScore() }>Correct</button>
-						<button type='submit' className='btn btn-primary' onClick={ event => this.getOneCard() }>Incorrect</button>
+						<button type='submit' className='btn btn-primary' onClick={ event => this.getNextCard() }>Incorrect</button>
 					</div> 
 					: 
 					<div>{ this.state.current.question }<br /><button type='submit' className='btn btn-primary' onClick={ event => this.showAnswer() }>Show Answer</button></div> 
