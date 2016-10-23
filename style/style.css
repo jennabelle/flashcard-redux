@@ -21,7 +21,7 @@
 
 
 /**********************
-	studyMode.js 
+	flashcard.js 
 **********************/
 .studyModeScore {
 	padding-top: 50px;
@@ -34,7 +34,11 @@
 	float: left
 }
 .QApadding {
-	padding-bottom: 100px;
+	padding-bottom: 250px;
+}
+.flipcard {
+	height: 500px;
+	width: 400px;
 }
 
 

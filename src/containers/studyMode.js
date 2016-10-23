@@ -8,12 +8,14 @@ import Flashcard from '../components/flashcard';
 class StudyMode extends Component {
 
 	constructor(props) {
+
 		super(props);
 
 		// shuffle current deck's cards
 		this.props.shuffleDeck( this.props.deck );
 		this.state = { cardIndex: 0, currentDeck: this.props.deck, showAnswer: false };
 	}
+
 	getNextCard() {
 
 		if ( this.state.cardIndex === this.state.currentDeck['cards'].length - 1 ) {
@@ -30,14 +32,17 @@ class StudyMode extends Component {
 
 		this.hideAnswer();
 	}
+
 	showAnswer() {
 
 		this.setState({ showAnswer: true });
 	}
+
 	hideAnswer() {
 
 		this.setState({ showAnswer: false });
 	}
+
 	addScore() {
 
 		var newScore = this.props.currentScore + 1;
@@ -45,10 +50,13 @@ class StudyMode extends Component {
 		this.props.setScore( newScore );
 		this.getNextCard();
 	}
-	render() {
 
+	render() {
 		return (
 			<div>
+				<Flashcard />
+
+				{/*
 				<div className='row studyModeScore'>
 					<div className='col-md-6 col-md-offset-3 text-center'>
 						<h4>Score: </h4>{ this.props.currentScore }
@@ -86,6 +94,8 @@ class StudyMode extends Component {
 						</div>
 					</div> 
 				}
+				*/}
+
 			</div>
 		);
 	}	
@@ -103,4 +113,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(StudyMode);
+
+
 
