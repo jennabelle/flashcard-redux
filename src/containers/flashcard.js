@@ -62,7 +62,7 @@ class Flashcard extends Component {
 
          // increment card index, show next card
          let temp = this.state.cardIndex + 1;
-         this.setState({ cardIndex: temp });
+         this.setState({ cardIndex: temp, isFlipped: false });
       }
    }
  
@@ -72,6 +72,7 @@ class Flashcard extends Component {
          <div id='flashcardWrapper'>
             <div className='row studyModeScore'>
                <div className='col-md-6 col-md-offset-3'>
+                  <h4>Score: { this.props.currentScore }</h4>
 
                  {/*
                    The `flipped` attribute indicates whether to show the front, or the back, with `true` meaning show the back.
@@ -91,6 +92,9 @@ class Flashcard extends Component {
                      </div>
                      <div>
                         <button type="button" className='flipcard img-rounded' ref="backButton" onClick={ event => this.showFront() }>
+                           <h3 className='QApadding'>
+                              { this.state.currentDeck.cards[ this.state.cardIndex ]['answer'] }
+                           </h3>
                            <div><small>Front</small></div>
                         </button>
                      </div>
