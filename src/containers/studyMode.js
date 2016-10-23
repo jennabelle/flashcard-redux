@@ -16,12 +16,14 @@ class StudyMode extends Component {
 	getNextCard() {
 
 		if ( this.state.cardIndex === this.state.currentDeck['cards'].length - 1 ) {
-			browserHistory.push('/');
+
+			// after all cards are shown, reset score, navigate to final score page
+			browserHistory.push('/decks/quiz/finalScore');
 		}
 		else {
 
+			// increment card index, show next card
 			let temp = this.state.cardIndex + 1;
-
 			this.setState({ cardIndex: temp });
 		}
 

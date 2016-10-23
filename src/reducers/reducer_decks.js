@@ -6,7 +6,7 @@ const demoData = [
 			title: 'React Fundamentals',
 			cards: [
 				{ question: 'What is your name?', answer: 'jenna' },
-				{ question: 'What is a smart component in Redux?', answer: 'A smart component is a component with direct access to the state.' },
+				{ question: 'What is state in React?', answer: 'State is data managed internally on the React component itself.' },
 				{ question: 'What is a container in Redux?', answer: 'A container is a component with direct access to state.' }
 			]
 		},
@@ -15,7 +15,7 @@ const demoData = [
 			title: 'Getting Started With Redux',
 			cards: [
 				{ question: 'What is your name?', answer: 'jenna' },
-				{ question: 'What is a smart component in Redux?', answer: 'A smart component is a component with direct access to the state.' },
+				{ question: 'What is state in React?', answer: 'State is data managed internally on the React component itself.' },
 				{ question: 'What is a container in Redux?', answer: 'A container is a component with direct access to state.' }
 			]
 		},
@@ -24,7 +24,7 @@ const demoData = [
 			title: 'CS 101 - Data Structures',
 			cards: [
 				{ question: 'What is your name?', answer: 'jenna' },
-				{ question: 'What is a smart component in Redux?', answer: 'A smart component is a component with direct access to the state.' },
+				{ question: 'What is state in React?', answer: 'State is data managed internally on the React component itself.' },
 				{ question: 'What is a container in Redux?', answer: 'A container is a component with direct access to state.' }
 			]
 		},
@@ -33,7 +33,7 @@ const demoData = [
 			title: 'CS 201 - Algorithms',
 			cards: [
 				{ question: 'What is your name?', answer: 'jenna' },
-				{ question: 'What is a smart component in Redux?', answer: 'A smart component is a component with direct access to the state.' },
+				{ question: 'What is state in React?', answer: 'State is data managed internally on the React component itself.' },
 				{ question: 'What is a container in Redux?', answer: 'A container is a component with direct access to state.' }
 			]
 		}
