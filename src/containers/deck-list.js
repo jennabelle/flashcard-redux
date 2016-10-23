@@ -27,7 +27,8 @@ class DeckList extends Component {
 				<h2>Flashcards</h2>
 				<ul className='list-group'>
 					{ this.renderDecks() }
-					<Link to='/decks/new' id='addNewDeck'><h2>+</h2></Link>
+					<li className='list-group-item list-group-item-warning'>
+					<Link to='/decks/new' id='addNewDeck'><b>+ Add New Deck</b></Link></li>
 				</ul>
 			</div>
 		)

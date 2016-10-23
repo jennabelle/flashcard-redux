@@ -33,6 +33,7 @@ class AddCard extends Component {
 				<DeckList />
 
 				<div className='col-md-8'>
+
 					<form onSubmit={ event => this.handleSubmit(event) }>
 						<h4>Create A New Card For { this.props.deck.title }</h4>
 						<div className='form-group'>
@@ -46,6 +47,7 @@ class AddCard extends Component {
 						
 						<button type='submit' className='btn btn-primary'>Submit</button>
 					</form>
+					
 				</div>
 			</div>
 		);
