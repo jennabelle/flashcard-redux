@@ -13,17 +13,25 @@ class DeckDetail extends Component {
 			)
 		});
 	}
+	renderInstructions() {
+
+		return (
+			<div className='col-md-9'>
+				<h4>Select a deck to get started.</h4>
+			</div>
+		)
+	}
 	render() {
 
 		if (!this.props.deck) {
-			return <h4>Select a deck to get started.</h4>;
+			return this.renderInstructions();
 		}
 
 		return (
-			<div className='col-md-8'>
+
+			<div className='col-md-9'>
 				<h3>{ this.props.deck.title }</h3>
-				<b>Total Cards: </b>{ this.props.deck.cards.length }<br /><br />
-				<Link to='/decks/cards/new'><h5>Add New Card</h5></Link><Link to='/decks/quiz'><h5>Quiz Yourself!</h5></Link><br />
+				<Link to='/decks/cards/new' className='addNewCard'>Add New Card</Link><Link to='/decks/quiz' className='studyMode'>Quiz Yourself!</Link><br />
 				<div>
 					<ul>
 						{ this.renderDeckDetail() }

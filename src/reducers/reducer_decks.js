@@ -3,7 +3,7 @@ import { ADD_DECK, ADD_CARD } from '../actions/index';
 const demoData = [
 		{
 			id: 1,
-			title: 'Test Your React.js Knowledge!',
+			title: 'React!',
 			cards: [
 				{ question: 'What is your name?', answer: 'jenna' },
 				{ question: 'What is a smart component in Redux?', answer: 'A smart component is a component with direct access to the state.' },
@@ -12,7 +12,7 @@ const demoData = [
 		},
 		{
 			id: 2,
-			title: 'How much Redux do you know?',
+			title: 'Redux!',
 			cards: [
 				{ question: 'What is your name?', answer: 'jenna' },
 				{ question: 'What is a smart component in Redux?', answer: 'A smart component is a component with direct access to the state.' },
@@ -21,7 +21,7 @@ const demoData = [
 		},
 		{
 			id: 3,
-			title: 'Computer Science 101',
+			title: 'CS 101',
 			cards: [
 				{ question: 'What is your name?', answer: 'jenna' },
 				{ question: 'What is a smart component in Redux?', answer: 'A smart component is a component with direct access to the state.' },
@@ -30,7 +30,7 @@ const demoData = [
 		},
 		{
 			id: 4,
-			title: 'Computer Science 201',
+			title: 'CS 201',
 			cards: [
 				{ question: 'What is your name?', answer: 'jenna' },
 				{ question: 'What is a smart component in Redux?', answer: 'A smart component is a component with direct access to the state.' },

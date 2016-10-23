@@ -19,7 +19,7 @@ class DeckList extends Component {
 	}
 	render() {
 		return (
-			<div className='col-md-4'>
+			<div className='col-md-3'>
 				<h2>Flashcards</h2>
 				<ul className='list-group'>
 					{ this.renderDecks() }

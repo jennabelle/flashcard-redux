@@ -15,22 +15,28 @@ class StudyMode extends Component {
 	getNextCard() {
 
 		console.log('this.state.index: ', this.state.index);
-		
-		if ( this.state.index === this.props.deck.cards.length ) {
+		console.log('this.props.deck.cards: ', this.props.deck.cards);
+
+		if ( this.state.index === this.props.deck.cards.length - 1 ) {
 			browserHistory.push('/');
 		}
 		else {
 			this.setState({ current: this.props.deck.cards[ this.state.index ] });
 			this.setState({ index: this.state.index + 1 });
 		}
+
+		this.hideAnswer();
 	}
 	showAnswer() {
+
 		this.setState({ showAnswer: true });
 	}
 	hideAnswer() {
+
 		this.setState({ showAnswer: false });
 	}
 	addScore() {
+
 		var newScore = this.props.currentScore + 1;
 
 		this.props.setScore( newScore );
