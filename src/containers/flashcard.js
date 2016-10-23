@@ -4,6 +4,8 @@ import { browserHistory } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { setScore, shuffleDeck } from '../actions/index';
 import FlipCard from 'react-flipcard';
+import FlatButton from 'material-ui/FlatButton';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class Flashcard extends Component {
 
@@ -69,56 +71,54 @@ class Flashcard extends Component {
    render() {
 
       return (
-         <div id='flashcardWrapper'>
-            <div className='row studyModeScore'>
-               <div className='col-md-6 col-md-offset-3'>
-                  <h4>Score: { this.props.currentScore }</h4>
+         <MuiThemeProvider>
+            <div id='flashcardWrapper'>
+               <div className='row studyModeScore'>
+                  <div className='col-md-6 col-md-offset-3'>
+                     <h4>Score: { this.props.currentScore }</h4>
 
-                 {/*
-                   The `flipped` attribute indicates whether to show the front, or the back, with `true` meaning show the back.
-                 */}
-                  <FlipCard
-                     disabled={ true }
-                     flipped={ this.state.isFlipped }
-                     onFlip={ event => this.handleOnFlip() }
-                     onKeyDown={ event => this.handleKeyDown() }>
-                     <div>
-                        <button type="button" className='flipcard img-rounded' onClick={ event => this.showBack() }>
-                           <h3 className='QApadding'>
-                              { this.state.currentDeck.cards[ this.state.cardIndex ]['question'] }
-                           </h3>
-                           <div><small>Back</small></div>
-                        </button>
-                     </div>
-                     <div>
-                        <button type="button" className='flipcard img-rounded' ref="backButton" onClick={ event => this.showFront() }>
-                           <h3 className='QApadding'>
-                              { this.state.currentDeck.cards[ this.state.cardIndex ]['answer'] }
-                           </h3>
-                           <div><small>Front</small></div>
-                        </button>
-                     </div>
-                  </FlipCard>
-               </div>
-            </div>
-            {
-               this.state.isFlipped 
-
-               ? 
-                  <div className='row correctIncorrectBtnPadding'>
-                     <div className='col-md-12 text-center'>
-                        <button type='submit' className='btn btn-primary incorrectBtn' onClick={ event => this.getNextCard() }>
-                           I Was Wrong!
-                        </button>
-                        <button type='submit' className='btn btn-primary correctBtn' onClick={ event => this.addScore() }>
-                           Correct!
-                        </button>
-                     </div>
+                    {/*
+                      The `flipped` attribute indicates whether to show the front, or the back, with `true` meaning show the back.
+                    */}
+                     <FlipCard
+                        disabled={ true }
+                        flipped={ this.state.isFlipped }
+                        onFlip={ event => this.handleOnFlip() }
+                        onKeyDown={ event => this.handleKeyDown() }>
+                        <div>
+                           <button type="button" className='flipcard img-rounded' onClick={ event => this.showBack() }>
+                              <h3 className='QApadding'>
+                                 { this.state.currentDeck.cards[ this.state.cardIndex ]['question'] }
+                              </h3>
+                              <div><small>Back</small></div>
+                           </button>
+                        </div>
+                        <div>
+                           <button type="button" className='flipcard img-rounded' ref="backButton" onClick={ event => this.showFront() }>
+                              <h3 className='QApadding'>
+                                 { this.state.currentDeck.cards[ this.state.cardIndex ]['answer'] }
+                              </h3>
+                              <div><small>Front</small></div>
+                           </button>
+                        </div>
+                     </FlipCard>
                   </div>
+               </div>
+               {
+                  this.state.isFlipped 
 
-               : null
-            }
-         </div>
+                  ? 
+                     <div className='row correctIncorrectBtnPadding'>
+                        <div className='col-md-12 text-center'>
+                           <FlatButton backgroundColor='#FFFFFF' className='incorrectBtn' label='I Was Wrong!' secondary={ true } onClick={ event => this.getNextCard() } />
+                           <FlatButton backgroundColor='#FFFFFF' className='correctBtn' label='Correct!' secondary={ true } onClick={ event => this.addScore() } />
+                        </div>
+                     </div>
+
+                  : null
+               }
+            </div>
+         </MuiThemeProvider>
       );
   }
 }

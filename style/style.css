@@ -29,7 +29,9 @@
 .studyMode {
 	float: right;
 }
-
+.appInstructions {
+	padding-top: 150px;
+}
 
 /* ===================
 	flashcard.js 
@@ -53,7 +55,7 @@
 	width: 400px;
 }
 .correctIncorrectBtnPadding {
-	padding-top: 480px;
+	padding-top: 200px;
 }
 #flashcardWrapper {
 	width: 80%;
