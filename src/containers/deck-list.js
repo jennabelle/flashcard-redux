@@ -7,6 +7,7 @@ import { Link } from 'react-router';
 class DeckList extends Component {
 
 	renderDecks() {
+
 		return this.props.decks.map( deck => {
 			return (
 				<li 
@@ -18,12 +19,13 @@ class DeckList extends Component {
 		});
 	}
 	render() {
+
 		return (
 			<div className='col-md-3'>
 				<h2>Flashcards</h2>
 				<ul className='list-group'>
 					{ this.renderDecks() }
-					<Link to='/decks/new'><h2>+</h2></Link>
+					<Link to='/decks/new' id='addNewDeck'><h2>+</h2></Link>
 				</ul>
 			</div>
 		)

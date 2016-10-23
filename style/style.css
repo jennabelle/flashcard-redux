@@ -1,9 +1,17 @@
+
+/* deck-list.js */
+#addNewDeck {
+	text-decoration: none;
+}
+
+
+/* deck-detail.js */
 .addNewCard {
 	float: left;
 }
-.studyMode {
-	float: right;
-}
 .deckTitle {
 	text-align: center;
+}
+.studyMode {
+	float: right;
 }
