@@ -10,13 +10,13 @@ class DeckList extends Component {
 
 		return this.props.decks.map( deck => {
 			return (
-				<li 
+				<a href='#' 
 					key={ deck.title }
 					onClick={ () => this.props.selectDeck(deck) }
 					className='list-group-item list-group-item-warning'>
 						<b>{ deck.title }</b>
 						<span className='badge'>{ deck.cards.length }</span>
-				</li>
+				</a>
 			)
 		});
 	}
@@ -25,11 +25,11 @@ class DeckList extends Component {
 		return (
 			<div className='col-md-3'>
 				<h2>Flashcards</h2>
-				<ul className='list-group'>
+				<div className='list-group'>
 					{ this.renderDecks() }
 					<li className='list-group-item list-group-item-warning'>
 					<Link to='/decks/new' id='addNewDeck'><b>+</b>   Add New Deck</Link></li>
-				</ul>
+				</div>
 			</div>
 		)
 	}
