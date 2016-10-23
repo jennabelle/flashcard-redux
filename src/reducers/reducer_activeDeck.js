@@ -12,6 +12,5 @@ export default function(state = null, action) {
 		case SHUFFLE_DECK:
 			return action.payload;
 	}
-
 	return state;
 }

@@ -14,6 +14,9 @@ class Flashcard extends Component {
       // shuffle current deck's cards
       this.props.shuffleDeck( this.props.deck );
       this.state = { isFlipped: false, cardIndex: 0, currentDeck: this.props.deck };
+
+      // bind context to component itself
+      this.getNextCard = this.getNextCard.bind(this);
    }
 
    showBack() {
@@ -66,36 +69,40 @@ class Flashcard extends Component {
    render() {
 
       return (
-         <div className='row studyModeScore'>    
-            <div className='col-md-6 col-md-offset-3'>
+         <div id='flashcardWrapper'>
+            <div className='row studyModeScore'>
+               <div className='col-md-6 col-md-offset-3'>
 
-              {/*
-                The `flipped` attribute indicates whether to show the front,
-                or the back, with `true` meaning show the back.
-              */}
-               <FlipCard
-                  disabled={ true }
-                  flipped={ this.state.isFlipped }
-                  onFlip={ event => this.handleOnFlip() }
-                  onKeyDown={ event => this.handleKeyDown() }
-                  >
+                 {/*
+                   The `flipped` attribute indicates whether to show the front, or the back, with `true` meaning show the back.
+                 */}
+                  <FlipCard
+                     disabled={ true }
+                     flipped={ this.state.isFlipped }
+                     onFlip={ event => this.handleOnFlip() }
+                     onKeyDown={ event => this.handleKeyDown() }>
                      <div>
-                        <button type="button" className='flipcard' onClick={ event => this.showBack() }>
-                           <h3 className='QApadding'>What is a container in Redux?</h3>
+                        <button type="button" className='flipcard img-rounded' onClick={ event => this.showBack() }>
+                           <h3 className='QApadding'>
+                              { this.state.currentDeck.cards[ this.state.cardIndex ]['question'] }
+                           </h3>
                            <div><small>Back</small></div>
                         </button>
                      </div>
                      <div>
-                        <button type="button" className='flipcard' ref="backButton" onClick={ event => this.showFront() }>
+                        <button type="button" className='flipcard img-rounded' ref="backButton" onClick={ event => this.showFront() }>
                            <div><small>Front</small></div>
                         </button>
                      </div>
-               </FlipCard>
-               {
-                  this.state.isFlipped 
+                  </FlipCard>
+               </div>
+            </div>
+            {
+               this.state.isFlipped 
 
-                  ? 
-                     <div>
+               ? 
+                  <div className='row correctIncorrectBtnPadding'>
+                     <div className='col-md-12 text-center'>
                         <button type='submit' className='btn btn-primary incorrectBtn' onClick={ event => this.getNextCard() }>
                            I Was Wrong!
                         </button>
@@ -103,12 +110,10 @@ class Flashcard extends Component {
                            Correct!
                         </button>
                      </div>
+                  </div>
 
-                  :
-
-                  <div></div>
-               }
-            </div>
+               : null
+            }
          </div>
       );
   }

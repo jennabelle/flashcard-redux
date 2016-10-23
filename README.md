@@ -11,7 +11,7 @@ Single-page flashcard application to help you study!
 
 ###To Start Server
 
-    npm start
+    npm run dev
 
 Go to:
 

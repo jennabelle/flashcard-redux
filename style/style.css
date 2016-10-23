@@ -1,14 +1,25 @@
-/*********************
+/* ===================
+	index.html
+=================== */
+
+#body {
+	background-color: #EAF5EB;
+}
+
+
+/* ===================
 	deck-list.js 
-*********************/
+=================== */
+
 #addNewDeck {
 	text-decoration: none;
 }
 
 
-/**********************
+/* ===================
 	deck-detail.js 
-**********************/
+=================== */
+
 .addNewCard {
 	float: left;
 }
@@ -20,9 +31,10 @@
 }
 
 
-/**********************
+/* ===================
 	flashcard.js 
-**********************/
+=================== */
+
 .studyModeScore {
 	padding-top: 50px;
 	padding-bottom: 50px;
@@ -40,11 +52,19 @@
 	height: 500px;
 	width: 400px;
 }
+.correctIncorrectBtnPadding {
+	padding-top: 450px;
+}
+#flashcardWrapper {
+	width: 80%;
+	right: 0;
+}
 
 
-/**********************
+/* ===================
 	final-score.js 
-**********************/
+=================== */
+
 .finalScorePadding {
 	padding-top: 50px;
 	padding-bottom: 100px;

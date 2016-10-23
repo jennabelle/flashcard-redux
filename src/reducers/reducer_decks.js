@@ -44,6 +44,7 @@ export default function(state = demoData, action) {
 	switch (action.type) {
 
 		case ADD_DECK:
+
 			return [ action.payload, ...state ]; // ok to concat, do not push!
 		
 		case ADD_CARD:
@@ -57,6 +58,5 @@ export default function(state = demoData, action) {
 
 			return newState;
 	}
-
 	return state;
 }

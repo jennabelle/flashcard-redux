@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import CardsNew from './add-card';
 
 class DeckDetail extends Component {
 
@@ -13,6 +12,7 @@ class DeckDetail extends Component {
 			)
 		});
 	}
+
 	renderInstructions() {
 
 		return (
@@ -21,6 +21,7 @@ class DeckDetail extends Component {
 			</div>
 		)
 	}
+
 	render() {
 
 		if (!this.props.deck) {
@@ -31,7 +32,8 @@ class DeckDetail extends Component {
 
 			<div className='col-md-9'>
 				<h3 className='deckTitle'>{ this.props.deck.title }</h3>
-				<Link to='/decks/cards/new' className='addNewCard'>Add New Card</Link><Link to='/decks/quiz' className='studyMode'>Quiz Yourself!</Link>
+				<Link to='/decks/cards/new' className='addNewCard'>Add New Card</Link>
+				<Link to='/decks/quiz' className='studyMode'>Quiz Yourself!</Link>
 				<br /><br />
 				<div>
 					<h4>Questions:</h4><br />

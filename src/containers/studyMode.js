@@ -56,7 +56,7 @@ class StudyMode extends Component {
 			<div>
 				<Flashcard />
 
-				{/*
+			
 				<div className='row studyModeScore'>
 					<div className='col-md-6 col-md-offset-3 text-center'>
 						<h4>Score: </h4>{ this.props.currentScore }
@@ -94,7 +94,7 @@ class StudyMode extends Component {
 						</div>
 					</div> 
 				}
-				*/}
+			
 
 			</div>
 		);

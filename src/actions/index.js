@@ -1,5 +1,6 @@
 import _ from 'underscore';
 
+// demo data's last deck.id is 4
 let nextDeckId = 4;
 
 export const DECK_SELECTED = 'DECK_SELECTED';
