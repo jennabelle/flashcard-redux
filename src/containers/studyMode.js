@@ -9,20 +9,20 @@ class StudyMode extends Component {
 	constructor(props) {
 		super(props);
 
-		this.props.shuffleDeck(this.props.deck);
-		this.state = { index: 0, current: this.props.deck.cards[0], showAnswer: false };
+		// shuffle current deck's cards
+		this.props.shuffleDeck( this.props.deck );
+		this.state = { cardIndex: 0, currentDeck: this.props.deck, showAnswer: false };
 	}
 	getNextCard() {
 
-		console.log('this.state.index: ', this.state.index);
-		console.log('this.props.deck.cards: ', this.props.deck.cards);
-
-		if ( this.state.index === this.props.deck.cards.length - 1 ) {
+		if ( this.state.cardIndex === this.state.currentDeck['cards'].length - 1 ) {
 			browserHistory.push('/');
 		}
 		else {
-			this.setState({ current: this.props.deck.cards[ this.state.index ] });
-			this.setState({ index: this.state.index + 1 });
+
+			let temp = this.state.cardIndex + 1;
+
+			this.setState({ cardIndex: temp });
 		}
 
 		this.hideAnswer();
@@ -41,25 +41,38 @@ class StudyMode extends Component {
 
 		this.props.setScore( newScore );
 		this.getNextCard();
-		this.hideAnswer();
 	}
 	render() {
 
 		return (
 			<div>
-				<div>
-					{ this.props.currentScore }
+				<div className='row'>
+					<h4>Score: </h4>{ this.props.currentScore }
 				</div>
 				<br />
 				{ 
-					this.state.showAnswer ? 
+					this.state.showAnswer 
+
+					? 
+
 					<div>
-						{ this.state.current.answer }<br />
-						<button type='submit' className='btn btn-primary' onClick={ event => this.addScore() }>Correct</button>
-						<button type='submit' className='btn btn-primary' onClick={ event => this.getNextCard() }>Incorrect</button>
+						{ this.state.currentDeck.cards[ this.state.cardIndex ]['answer'] }<br />
+						<button type='submit' className='btn btn-primary' onClick={ event => this.addScore() }>
+							Correct
+						</button>
+						<button type='submit' className='btn btn-primary' onClick={ event => this.getNextCard() }>
+							Incorrect
+						</button>
 					</div> 
-					: 
-					<div>{ this.state.current.question }<br /><button type='submit' className='btn btn-primary' onClick={ event => this.showAnswer() }>Show Answer</button></div> 
+
+					:
+
+					<div>
+						{ this.state.currentDeck.cards[ this.state.cardIndex ]['question'] }<br />
+						<button type='submit' className='btn btn-primary' onClick={ event => this.showAnswer() }>
+							Show Answer
+						</button>
+					</div> 
 				}
 			</div>
 		);
@@ -78,3 +91,4 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(StudyMode);
+
