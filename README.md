@@ -26,7 +26,6 @@ Go to:
     React
     React-router
     React-flipcard
-    Redux-form
     ES6
     Node.js
     Babel

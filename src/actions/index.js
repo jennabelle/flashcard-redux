@@ -1,7 +1,6 @@
 import _ from 'underscore';
 
 let nextDeckId = 4;
-let score = 0;
 
 export const DECK_SELECTED = 'DECK_SELECTED';
 export const ADD_DECK = 'ADD_DECK';
@@ -10,8 +9,6 @@ export const ADD_SCORE = 'ADD_SCORE';
 export const SHUFFLE_DECK = 'SHUFFLE_DECK';
 
 export const addDeck = (deck) => {
-
-	// append new deck to deck list
 
 	var id = nextDeckId++;
 
@@ -37,7 +34,6 @@ export const setActiveDeck = deck => {
 }
 
 export const setScore = newScore => {
-
 	return {
 		type: ADD_SCORE,
 		payload: newScore

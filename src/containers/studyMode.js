@@ -72,6 +72,7 @@ function mapStateToProps(state) {
  		currentScore: state.currentScore
  	};
 }
+
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({ setScore: setScore, shuffleDeck: shuffleDeck }, dispatch);
 }

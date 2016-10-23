@@ -26,7 +26,7 @@ class AddCard extends Component {
 		browserHistory.push('/');
 	}
 	render() {
-		
+
 		return (
 			<div className='row'>
 
@@ -57,6 +57,7 @@ function mapStateToProps(state) {
  		deck: state.activeDeck
  	};
 }
+
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({ addCard: addCard }, dispatch);
 }

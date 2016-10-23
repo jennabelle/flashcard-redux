@@ -37,6 +37,7 @@ function mapStateToProps(state) {
  		decks: state.decks
  	};
 }
+
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({ selectDeck: setActiveDeck }, dispatch);
 }
