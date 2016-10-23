@@ -17,7 +17,7 @@ class DeckDetail extends Component {
 
 		return (
 			<div className='col-md-9'>
-				<h4>Select a deck to get started.</h4>
+				<h4 className='deckTitle'>Select a deck to get started!</h4>
 			</div>
 		)
 	}
@@ -30,9 +30,11 @@ class DeckDetail extends Component {
 		return (
 
 			<div className='col-md-9'>
-				<h3>{ this.props.deck.title }</h3>
-				<Link to='/decks/cards/new' className='addNewCard'>Add New Card</Link><Link to='/decks/quiz' className='studyMode'>Quiz Yourself!</Link><br />
+				<h3 className='deckTitle'>{ this.props.deck.title }</h3>
+				<Link to='/decks/cards/new' className='addNewCard'>Add New Card</Link><Link to='/decks/quiz' className='studyMode'>Quiz Yourself!</Link>
+				<br /><br />
 				<div>
+					<h4>Questions:</h4><br />
 					<ul>
 						{ this.renderDeckDetail() }
 					</ul>
