@@ -32,7 +32,7 @@ class DeckDetail extends Component {
 
 		return (
 			<MuiThemeProvider>
-				<div className='col-md-9'>
+				<div className='col-md-9 deckDetailPadding'>
 					<h3 className='deckTitle'>{ this.props.deck.title }</h3>
 					<Link to='/decks/cards/new' className='addNewCard'>
 						<FlatButton backgroundColor='#FFFFFF' label='Add New Card' secondary={ true } />
@@ -42,7 +42,7 @@ class DeckDetail extends Component {
 					</Link>
 					<br /><br />
 					<div>
-						<h4>Questions:</h4><br />
+						<h4 className='questionsHeader'>Questions:</h4><br />
 						<ul>
 							{ this.renderDeckDetail() }
 						</ul>

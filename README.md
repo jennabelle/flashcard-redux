@@ -19,7 +19,7 @@ Go to:
 
 ###To Run Unit Tests
 
-    npm run test
+    npm test
 
 ###Tech Stack
 
@@ -32,3 +32,4 @@ Go to:
     Babel
     Webpack
     Bootstrap
+    Material-ui

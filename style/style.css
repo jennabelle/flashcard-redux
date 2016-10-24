@@ -20,11 +20,18 @@
 	deck-detail.js 
 =================== */
 
+.deckDetailPadding{
+	margin-top: 32px;
+}
 .addNewCard {
 	float: left;
 }
 .deckTitle {
 	text-align: center;
+	color: #3730F2;
+}
+.questionsHeader {
+	color: #302CB7;
 }
 .studyMode {
 	float: right;
@@ -32,6 +39,7 @@
 .appInstructions {
 	padding-top: 150px;
 }
+
 
 /* ===================
 	flashcard.js 
@@ -60,6 +68,9 @@
 #flashcardWrapper {
 	width: 80%;
 	right: 0;
+}
+.scoreHeader {
+	color: #3730F2;
 }
 
 

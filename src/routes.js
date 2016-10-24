@@ -7,6 +7,7 @@ import Flashcard from './containers/flashcard';
 import FinalScore from './containers/final-score';
 
 export default (
+	
 	<Router history={ browserHistory }>
 		<Route path='/' component={ App } />
 		<Route path='/decks/new' component={ DecksNew } />

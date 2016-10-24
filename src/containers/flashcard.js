@@ -75,7 +75,7 @@ class Flashcard extends Component {
             <div id='flashcardWrapper'>
                <div className='row studyModeScore'>
                   <div className='col-md-6 col-md-offset-3'>
-                     <h4>Score: { this.props.currentScore }</h4>
+                     <h4 className='scoreHeader'>Score: { this.props.currentScore }</h4>
 
                     {/*
                       The `flipped` attribute indicates whether to show the front, or the back, with `true` meaning show the back.
