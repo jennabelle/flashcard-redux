@@ -30,6 +30,8 @@ Go to:
     ES6
     Node.js
     Babel
+    Mocha
+    Chai
     Webpack
     Bootstrap
     Material-ui
