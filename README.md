@@ -4,6 +4,10 @@ Single-page flashcard application to help you study!
 
 ###Screenshots
 
+<span width="30px" height="30px"><img src="./src/images/Screenshot 1.png"></span>
+<span width="30px" height="30px"><img src="./src/images/Screenshot 2.png"></span>
+<span width="30px" height="30px"><img src="./src/images/Screenshot 3.png"></span>
+<span width="30px" height="30px"><img src="./src/images/tests_screenshot.png"></span>
 
 ###Getting Started
 
@@ -19,7 +23,7 @@ Go to:
 
 ###To Run Unit Tests
 
-    npm run test
+    npm test
 
 or,
 

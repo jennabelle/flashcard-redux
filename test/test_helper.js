@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducers from '../src/reducers';
 
+// set up js dom
 global.document = jsdom.jsdom('<!doctype html><html><body></body></html>');
 global.window = global.document.defaultView;
 global.navigator = global.window.navigator;
@@ -26,6 +27,7 @@ function renderComponent(ComponentClass, props = {}, state = {}) {
   return $(ReactDOM.findDOMNode(componentInstance));
 }
 
+// simulate user events
 $.fn.simulate = function(eventName, value) {
   if (value) {
     this.val(value);

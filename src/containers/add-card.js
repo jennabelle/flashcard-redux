@@ -10,11 +10,10 @@ import { browserHistory } from 'react-router';
 class AddCard extends Component {
 
 	constructor(props) {
-
 		super(props);
 	}
-	handleSubmit(e) {
 
+	handleSubmit(e) {
 		e.preventDefault();
 
 		var cardQuestion = ReactDOM.findDOMNode(this.refs.cardQuestion);
@@ -25,6 +24,7 @@ class AddCard extends Component {
 		this.props.addCard(newCard, this.props.deck);
 		browserHistory.push('/');
 	}
+
 	render() {
 
 		return (
@@ -45,7 +45,7 @@ class AddCard extends Component {
 							<input type='text' className='form-control' ref='cardAnswer' />
 						</div>
 						
-						<button type='submit' className='btn btn-primary'>Submit</button>
+						<button type='submit' action='submit' className='btn btn-primary'>Submit</button>
 					</form>
 					
 				</div>

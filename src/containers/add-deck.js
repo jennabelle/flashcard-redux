@@ -12,6 +12,7 @@ class AddDeck extends Component {
 	constructor(props) {
 		super(props);
 	}
+
 	handleSubmit(e) {
 		e.preventDefault();
 
@@ -21,6 +22,7 @@ class AddDeck extends Component {
 		this.props.addDeck(newDeck);
 		browserHistory.push('/');
 	}
+
 	render() {
 		return (
 			<div className='row'>
@@ -33,7 +35,7 @@ class AddDeck extends Component {
 							<input type='text' className='form-control' ref='deckTitle' />
 						</div>
 						
-						<button type='submit' className='btn btn-primary'>Submit</button>
+						<button type='submit' action='submit' className='btn btn-primary'>Submit</button>
 					</form>
 				</div>
 			</div>

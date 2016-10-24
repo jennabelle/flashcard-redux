@@ -1,4 +1,4 @@
-import { ADD_SCORE } from '../actions/index';
+import { ADD_SCORE } from '../actions/types';
 
 export default function(state = 0, action) {
 

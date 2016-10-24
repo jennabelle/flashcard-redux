@@ -1,13 +1,8 @@
 import _ from 'underscore';
+import { DECK_SELECTED, ADD_DECK, ADD_CARD, ADD_SCORE, SHUFFLE_DECK } from './types';
 
 // demo data's last deck.id is 4
 let nextDeckId = 4;
-
-export const DECK_SELECTED = 'DECK_SELECTED';
-export const ADD_DECK = 'ADD_DECK';
-export const ADD_CARD = 'ADD_CARD';
-export const ADD_SCORE = 'ADD_SCORE';
-export const SHUFFLE_DECK = 'SHUFFLE_DECK';
 
 export const addDeck = (deck) => {
 
@@ -28,7 +23,7 @@ export const addCard = (card, activeDeck) => {
 }
 
 export const setActiveDeck = deck => {
-	return {
+	return { 
 		type: DECK_SELECTED,
 		payload: deck
 	}

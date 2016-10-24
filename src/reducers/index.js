@@ -4,7 +4,6 @@ import ActiveDeck from './reducer_activeDeck';
 import MyScore from './reducer_score';
 
 const rootReducer = combineReducers({
-	
   decks: Decks,
   activeDeck: ActiveDeck,
   currentScore: MyScore
