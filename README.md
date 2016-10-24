@@ -15,11 +15,15 @@ Single-page flashcard application to help you study!
 
 Go to:
 
-    http://localhost:8080
+    http://localhost:8080/webpack-dev-server
 
 ###To Run Unit Tests
 
-    npm test
+    npm run test
+
+or,
+
+    npm run test:watch
 
 ###Tech Stack
 
