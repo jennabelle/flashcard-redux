@@ -3,12 +3,14 @@ import { connect } from 'react-redux';
 import { setActiveDeck } from '../actions/index';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router';
+import _ from 'underscore';
 
 class DeckList extends Component {
 
-	renderDecks() {
+	renderDecks() { // QUESTION: WHy is this returning [] after adding a card??
+		console.log('this.props.decks: ', this.props.decks);
 
-		return this.props.decks.map( deck => {
+		return _.map( this.props.decks, deck => {
 			return (
 				<a href='#' 
 					key={ deck.title }
@@ -37,7 +39,7 @@ class DeckList extends Component {
 
 function mapStateToProps(state) {
  	return {
- 		decks: state.decks
+ 		decks: state.decks.decks
  	};
 }
 

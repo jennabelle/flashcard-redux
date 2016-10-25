@@ -3,12 +3,13 @@ import FlatButton from 'material-ui/FlatButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
+import _ from 'underscore';
 
 class DeckDetail extends Component {
 
 	renderDeckDetail() {
 
-		return this.props.deck.cards.map( card => {
+		return _.map( this.props.deck.cards, card => {
 			return (
 				<li key={ card.question }>{ card.question }</li>
 			)
