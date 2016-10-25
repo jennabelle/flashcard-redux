@@ -5,7 +5,7 @@ import MyScore from './reducer_score';
 
 const rootReducer = combineReducers({
   decks: Decks,
-  activeDeck: ActiveDeck, // QUESTION: Does ea deck need separate deck.id field?
+  activeDeck: ActiveDeck,
   currentScore: MyScore
 });
 

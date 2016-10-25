@@ -11,7 +11,7 @@ export default function(state = demoData, action) {
 		
 		case ADD_CARD:
 
-			var newState = _.map( state.decks, (val, key) => {
+			var newState = _.mapObject( state.decks, (val, key) => {
 
 				if ( action.payload.activeDeck.id === val.id ) {
 
@@ -20,7 +20,7 @@ export default function(state = demoData, action) {
 				}
 				return val;
 			});
-			
+			console.log('newState: ', newState);
 			return newState;
 	}
 	return state;

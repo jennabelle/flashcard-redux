@@ -7,8 +7,7 @@ import _ from 'underscore';
 
 class DeckList extends Component {
 
-	renderDecks() { // QUESTION: WHy is this returning [] after adding a card??
-		console.log('this.props.decks: ', this.props.decks);
+	renderDecks() {
 
 		return _.map( this.props.decks, deck => {
 			return (
@@ -37,7 +36,7 @@ class DeckList extends Component {
 	}
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state) { console.log('inside mapStateToProps! state: ', state.decks.decks);
  	return {
  		decks: state.decks.decks
  	};
