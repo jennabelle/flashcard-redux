@@ -4,6 +4,11 @@
 
 #body {
 	background-color: #EAF5EB;
+	background-image: url("../src/images/background-image.jpeg");
+	width: 100%;
+  	height: 900px;
+  	background-position: center; /* css trick to get full background image */
+  	background-size: cover; /* image will be centered no matter how wide the screen is */
 }
 
 
@@ -14,6 +19,9 @@
 #addNewDeck {
 	text-decoration: none;
 }
+.flashcardTitle {
+	color: #FFFFFF;
+}
 
 
 /* ===================
@@ -21,14 +29,18 @@
 =================== */
 
 .deckDetailPadding{
-	margin-top: 32px;
+	margin-top: 65px;
+	background-color: #FAF3F3;
+	border-radius: 25px;
+	border: 2px solid #73AD21;
+	height: 500px;
 }
 .addNewCard {
 	float: left;
 }
 .deckTitle {
 	text-align: center;
-	color: #3730F2;
+	color: #DE1242;
 }
 .questionsHeader {
 	color: #302CB7;
@@ -37,8 +49,27 @@
 	float: right;
 }
 .appInstructions {
-	padding-top: 150px;
+	margin-top: 150px;
 }
+
+
+/* ===================
+	add-card.js 
+=================== */
+
+.addNewCardTitle {
+	color: #DE1242;
+}
+
+
+/* ===================
+	add-deck.js 
+=================== */
+
+.addNewDeckTitle {
+	color: #DE1242;
+}
+
 
 
 /* ===================

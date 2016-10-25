@@ -37,7 +37,7 @@ class AddCard extends Component {
 				<div className='col-md-8'>
 
 					<form onSubmit={ event => this.handleSubmit(event) }>
-						<h4>Create A New Card For { this.props.deck.title }</h4>
+						<h4 className='addNewCardTitle'>Create A New Card For { this.props.deck.title }</h4>
 						<div className='form-group'>
 							<label>Question:</label>
 							<input type='text' className='form-control' ref='cardQuestion' />
