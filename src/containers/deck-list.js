@@ -25,7 +25,7 @@ class DeckList extends Component {
 
 		return (
 			<div className='col-md-3'>
-				<h2 className='text-center'>Flashcards</h2>
+				<h2 className='text-center flashcardTitle'>Flashcards</h2>
 				<div className='list-group'>
 					{ this.renderDecks() }
 					<li className='list-group-item list-group-item-warning'>

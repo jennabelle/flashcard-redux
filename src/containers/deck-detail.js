@@ -20,7 +20,7 @@ class DeckDetail extends Component {
 
 		return (
 			<div className='col-md-9 appInstructions'>
-				<h4 className='deckTitle'>Select a deck to get started!</h4>
+				<h2 className='deckTitle'>Select a deck to get started!</h2>
 			</div>
 		)
 	}

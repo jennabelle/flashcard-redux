@@ -29,7 +29,7 @@ class AddDeck extends Component {
 				<DeckList />
 				<div className='col-md-8'>
 					<form onSubmit={ event => this.handleSubmit(event) }>
-						<h4>Create A New Deck</h4>
+						<h4 className='addNewDeckTitle'>Create A New Deck</h4>
 						<div className='form-group'>
 							<label>Title</label>
 							<input type='text' className='form-control' ref='deckTitle' />
