@@ -11,7 +11,8 @@ describe('actions', () => {
 	describe('addDeck', () => {
 
 		it('has the correct type', () => {
-			const action = addDeck();
+			const deck = { title: 'Test', cards: [] };
+			const action = addDeck(deck);
 			expect(action.type).to.equal(ADD_DECK);
 		});
 

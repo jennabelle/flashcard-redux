@@ -16,12 +16,14 @@ class AddCard extends Component {
 	handleSubmit(e) {
 		e.preventDefault();
 
+		// create new card
 		var cardQuestion = ReactDOM.findDOMNode(this.refs.cardQuestion);
 		var cardAnswer = ReactDOM.findDOMNode(this.refs.cardAnswer);
-
 		var newCard = { question: cardQuestion.value, answer: cardAnswer.value };
 
-		this.props.addCard(newCard, this.props.deck);
+		// call addCard action creator
+		this.props.addCard(newCard, this.props.deck); 
+		
 		browserHistory.push('/');
 	}
 

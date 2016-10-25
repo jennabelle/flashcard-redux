@@ -1,24 +1,26 @@
 import { ADD_DECK, ADD_CARD } from '../actions/types';
 import demoData from '../data/demo_data';
+import _ from 'underscore';
 
 export default function(state = demoData, action) {
 
 	switch (action.type) {
 
 		case ADD_DECK:
-			return [ action.payload, ...state ];
+			return { decks: { ...state.decks, [action.payload.id]: action.payload } };
 		
 		case ADD_CARD:
 
-			var newState = state.map( obj => {
+			var newState = _.mapObject( state.decks, (val, key) => {
 
-				if ( obj.id === action.payload.activeDeck.id ) {
-					obj.cards.push(action.payload.card);
+				if ( action.payload.activeDeck.id === val.id ) {
+
+					val.cards.push(action.payload.card); // QUESTION: Is push ok instead of spread operator/concat?
+					// [ ...val.cards, action.payload.card ];
 				}
-				return obj;
+				return val;
 			});
-
-			return newState;
+			return { decks: newState };
 	}
 	return state;
 }

@@ -6,11 +6,12 @@ let nextDeckId = 4;
 
 export const addDeck = (deck) => {
 
+	// add new deck.id
 	var id = nextDeckId++;
+	deck['id'] = id;
 
 	return {
 		type: ADD_DECK,
-		id: id,
 		payload: deck
 	}
 }
