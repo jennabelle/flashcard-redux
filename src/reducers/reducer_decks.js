@@ -13,7 +13,7 @@ export default function(state = demoData, action) {
 
 			var newState = _.mapObject( state.decks, (val, key) => {
 
-				if ( action.payload.activeDeck.id === val.id ) { console.log('action.payload.card: ', action.payload.card);
+				if ( action.payload.activeDeck.id === val.id ) {
 
 					val.cards.push(action.payload.card); // QUESTION: Is push ok instead of spread operator/concat?
 					// [ ...val.cards, action.payload.card ];
