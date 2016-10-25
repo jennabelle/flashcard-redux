@@ -21,7 +21,11 @@
 =================== */
 
 .deckDetailPadding{
-	margin-top: 32px;
+	margin-top: 65px;
+	background-color: #FAF3F3;
+	border-radius: 25px;
+	border: 2px solid #73AD21;
+	height: 500px;
 }
 .addNewCard {
 	float: left;
@@ -37,7 +41,7 @@
 	float: right;
 }
 .appInstructions {
-	padding-top: 150px;
+	margin-top: 150px;
 }
 
 
