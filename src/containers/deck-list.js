@@ -36,7 +36,7 @@ class DeckList extends Component {
 	}
 }
 
-function mapStateToProps(state) { console.log('inside mapStateToProps! state: ', state.decks.decks);
+function mapStateToProps(state) {
  	return {
  		decks: state.decks.decks
  	};

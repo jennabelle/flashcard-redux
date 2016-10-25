@@ -7,21 +7,20 @@ export default function(state = demoData, action) {
 	switch (action.type) {
 
 		case ADD_DECK:
-			return { ...state.decks, [ action.id ]: action.payload };
+			return { decks: { ...state.decks, [action.payload.id]: action.payload } };
 		
 		case ADD_CARD:
 
 			var newState = _.mapObject( state.decks, (val, key) => {
 
-				if ( action.payload.activeDeck.id === val.id ) {
+				if ( action.payload.activeDeck.id === val.id ) { console.log('action.payload.card: ', action.payload.card);
 
-					val.cards.push(action.payload.card); // QUESTION: Is push ok instead of spread operator?
+					val.cards.push(action.payload.card); // QUESTION: Is push ok instead of spread operator/concat?
 					// [ ...val.cards, action.payload.card ];
 				}
 				return val;
 			});
-			console.log('newState: ', newState);
-			return newState;
+			return { decks: newState };
 	}
 	return state;
 }

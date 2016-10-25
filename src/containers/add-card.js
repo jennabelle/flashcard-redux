@@ -13,7 +13,7 @@ class AddCard extends Component {
 		super(props);
 	}
 
-	handleSubmit(e) { 
+	handleSubmit(e) {
 		e.preventDefault();
 
 		// create new card
