@@ -63,8 +63,8 @@ class Flashcard extends Component {
       else {
 
          // increment card index, show next card
-         let temp = this.state.cardIndex + 1;
-         this.setState({ cardIndex: temp, isFlipped: false });
+         let nextIndex = this.state.cardIndex + 1;
+         this.setState({ cardIndex: nextIndex, isFlipped: false });
       }
    }
  

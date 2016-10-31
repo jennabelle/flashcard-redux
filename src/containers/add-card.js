@@ -9,10 +9,6 @@ import { browserHistory } from 'react-router';
 
 class AddCard extends Component {
 
-	constructor(props) {
-		super(props);
-	}
-
 	handleSubmit(e) {
 		e.preventDefault();
 

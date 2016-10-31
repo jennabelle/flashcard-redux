@@ -36,6 +36,6 @@ module.exports = {
 						{ question: 'What is a container in Redux?', answer: 'A container is a component with direct access to state.' }
 					]
 				}
-	}
+			}
 };
 
