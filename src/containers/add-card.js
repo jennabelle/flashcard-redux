@@ -18,7 +18,7 @@ class AddCard extends Component {
 		var newCard = { question: cardQuestion.value, answer: cardAnswer.value };
 
 		// call addCard action creator
-		this.props.addCard(newCard, this.props.deck); 
+		this.props.addCard(newCard, this.props.deck.id); 
 		
 		browserHistory.push('/');
 	}

@@ -9,18 +9,11 @@ export default function(state = demoData, action) {
 		case ADD_DECK:
 			return { decks: { ...state.decks, [action.payload.id]: action.payload } };
 		
-		case ADD_CARD:
+		case ADD_CARD: 
 
-			var newState = _.mapObject( state.decks, (val, key) => {
+			state.decks[action.payload.activeDeckId].cards.push(action.payload.card);
 
-				if ( action.payload.activeDeck.id === val.id ) {
-
-					val.cards.push(action.payload.card); // QUESTION: Is push ok instead of spread operator/concat?
-					// [ ...val.cards, action.payload.card ];
-				}
-				return val;
-			});
-			return { decks: newState };
+			return { decks: state.decks };
 	}
 	return state;
 }
