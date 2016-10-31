@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom';
 import DeckList from './deck-list';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setActiveDeck, addDeck } from '../actions/index';
+import { addDeck } from '../actions/index';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router';
 import { browserHistory } from 'react-router';
@@ -50,7 +50,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-	return bindActionCreators({ selectDeck: setActiveDeck, addDeck: addDeck }, dispatch);
+	return bindActionCreators({ addDeck: addDeck }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddDeck);
