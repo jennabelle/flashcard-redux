@@ -13,7 +13,7 @@ class DeckList extends Component {
 			return (
 				<a href='#' 
 					key={ deck.title }
-					onClick={ () => this.props.selectDeck(deck) }
+					onClick={ () => this.props.selectDeck(deck.id) }
 					className='list-group-item list-group-item-warning'>
 						<b>{ deck.title }</b>
 						<span className='badge'>{ deck.cards.length }</span>

@@ -42,7 +42,6 @@ class FinalScore extends Component {
 
 function mapStateToProps(state) {
  	return {
- 		deck: state.activeDeck,
  		currentScore: state.currentScore
  	};
 }

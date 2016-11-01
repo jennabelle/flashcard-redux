@@ -9,13 +9,13 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class Flashcard extends Component {
 
-   constructor(props) {
+   constructor(props) { 
 
       super(props);
 
       // shuffle current deck's cards
-      this.props.shuffleDeck( this.props.deck );
-      this.state = { isFlipped: false, cardIndex: 0, currentDeck: this.props.deck };
+      this.props.shuffleDeck( this.props.activeDeck );
+      this.state = { isFlipped: false, cardIndex: 0, currentDeck: this.props.activeDeck };
 
       // bind context to component itself
       this.getNextCard = this.getNextCard.bind(this);
@@ -63,8 +63,8 @@ class Flashcard extends Component {
       else {
 
          // increment card index, show next card
-         let temp = this.state.cardIndex + 1;
-         this.setState({ cardIndex: temp, isFlipped: false });
+         let nextIndex = this.state.cardIndex + 1;
+         this.setState({ cardIndex: nextIndex, isFlipped: false });
       }
    }
  
@@ -125,7 +125,7 @@ class Flashcard extends Component {
 
 function mapStateToProps(state) {
    return {
-      deck: state.activeDeck,
+      activeDeck: state.decks.decks[state.activeDeckId],
       currentScore: state.currentScore
    };
 }

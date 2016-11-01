@@ -16,17 +16,17 @@ export const addDeck = (deck) => {
 	}
 }
 
-export const addCard = (card, activeDeck) => {
+export const addCard = (card, activeDeckId) => { 
 	return {
 		type: ADD_CARD,
-		payload: { card, activeDeck }
+		payload: { card, activeDeckId }
 	}
 }
 
-export const setActiveDeck = deck => {
+export const setActiveDeck = deckId => {
 	return { 
 		type: DECK_SELECTED,
-		payload: deck
+		payload: deckId
 	}
 }
 
