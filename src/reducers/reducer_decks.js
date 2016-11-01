@@ -9,7 +9,7 @@ export default function(state = demoData, action) {
 		case ADD_DECK:
 			return { decks: { ...state.decks, [action.payload.id]: action.payload } };
 		
-		case ADD_CARD: 
+		case ADD_CARD:
 
 			state.decks[action.payload.activeDeckId].cards.push(action.payload.card);
 

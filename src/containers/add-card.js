@@ -18,7 +18,7 @@ class AddCard extends Component {
 		var newCard = { question: cardQuestion.value, answer: cardAnswer.value };
 
 		// call addCard action creator
-		this.props.addCard(newCard, this.props.deck.id); 
+		this.props.addCard(newCard, this.props.activeDeck.id); 
 		
 		browserHistory.push('/');
 	}
@@ -33,7 +33,7 @@ class AddCard extends Component {
 				<div className='col-md-8'>
 
 					<form onSubmit={ event => this.handleSubmit(event) }>
-						<h4 className='addNewCardTitle'>Create A New Card For { this.props.deck.title }</h4>
+						<h4 className='addNewCardTitle'>Create A New Card For { this.props.activeDeck['title'] }</h4>
 						<div className='form-group'>
 							<label>Question:</label>
 							<input type='text' className='form-control' ref='cardQuestion' />
@@ -54,7 +54,8 @@ class AddCard extends Component {
 
 function mapStateToProps(state) {
  	return {
- 		deck: state.activeDeck
+ 		decks: state.decks.decks,
+ 		activeDeck: state.decks.decks[state.activeDeckId]
  	};
 }
 

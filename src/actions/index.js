@@ -23,10 +23,10 @@ export const addCard = (card, activeDeckId) => {
 	}
 }
 
-export const setActiveDeck = deck => {
+export const setActiveDeck = deckId => {
 	return { 
 		type: DECK_SELECTED,
-		payload: deck
+		payload: deckId
 	}
 }
 
