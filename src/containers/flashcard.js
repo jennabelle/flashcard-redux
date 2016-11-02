@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
+import { setScore } from '../actions/index';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import FlipCard from 'react-flipcard';
 
-export default class Flashcard extends Component {
+class Flashcard extends Component {
 
    constructor(props) {
       super(props);
 
       this.state = { isFlipped: false };
    }
-
+   
    showBack() {
       this.setState({ isFlipped: true });
    }
-
    showFront() {
       this.setState({ isFlipped: false });
    }
@@ -29,8 +31,21 @@ export default class Flashcard extends Component {
          this.showFront();
       }
    }
+
+   addScore() {
+
+      var newScore = this.props.currentScore + 1;
+
+      this.props.setScore( newScore );
+
+      // reset to show question in next card
+      this.setState({ isFlipped: false }); 
+
+      // invoke method from flashcard-list.js
+      this.props.getNextCard(); 
+   }
  
-   render() { console.log('inside Flashcard component! this.props.currentCard: ', this.props.currentCard);
+   render() {
 
       return (
          <div>
@@ -59,7 +74,35 @@ export default class Flashcard extends Component {
                   </button>
                </div>
             </FlipCard>
+
+               {
+                  this.state.isFlipped 
+
+                  ? 
+                     <div className='correctIncorrectBtnPadding'>
+                        <div className='col-md-12'>
+                           <button className='btn btn-default incorrectBtn' onClick={ event => this.props.getNextCard() }>I Was Wrong!</button>
+                           <button className='btn btn-default correctBtn' onClick={ event => this.addScore() }>Correct!</button>
+                        </div>
+                     </div>
+
+                  : null
+               }
+
          </div>
       );
    }
+};
+
+function mapStateToProps(state) {
+   return {
+      currentScore: state.currentScore
+   };
 }
+
+function mapDispatchToProps(dispatch) {
+   return bindActionCreators({ setScore: setScore }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Flashcard);
+

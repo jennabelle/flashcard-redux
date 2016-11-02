@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { setScore, shuffleDeck } from '../actions/index';
+import { shuffleDeck } from '../actions/index';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { browserHistory } from 'react-router';
 import Flashcard from './flashcard';
-import FlatButton from 'material-ui/FlatButton';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class FlashcardList extends Component {
 
@@ -13,13 +12,14 @@ class FlashcardList extends Component {
 
 		this.state = { cardIndex: 0, currentDeck: this.props.activeDeck };
 
+		// bind method to component itself - important bc child component, Flashcard, invokes this method too
 		this.getNextCard = this.getNextCard.bind(this);
+		this.shuffleDeck();
 	}
 
 	shuffleDeck() {
 		this.props.shuffleDeck( this.props.activeDeck );
 	}
-
    	getNextCard() {
 
 		if ( this.state.cardIndex === this.state.currentDeck['cards'].length - 1 ) {
@@ -31,44 +31,20 @@ class FlashcardList extends Component {
 
 			// increment card index, show next card
 			let nextIndex = this.state.cardIndex + 1;
-			this.setState({ cardIndex: nextIndex, isFlipped: false });
+			this.setState({ cardIndex: nextIndex });
 		}
-   }
-
-   addScore() {
-
-      var newScore = this.props.currentScore + 1;
-
-      this.props.setScore( newScore );
-      this.getNextCard();
-   }
-
-   render() {
+    }
+    render() {
 
       return (
-         <MuiThemeProvider>
-            <div id='flashcardWrapper'>
+			<div id='flashcardWrapper'>
                <div className='row studyModeScore'>
                   <div className='col-md-6 col-md-offset-3'>
                      <h4 className='scoreHeader'>Score: { this.props.currentScore }</h4>
-                     <Flashcard currentCard={ this.props.activeDeck.cards[this.state.cardIndex] } />
+                     <Flashcard currentCard={ this.state.currentDeck.cards[this.state.cardIndex] } getNextCard={ this.getNextCard } />
                   </div>
                </div>
-               {
-                  this.state.isFlipped 
-
-                  ? 
-                     <div className='row correctIncorrectBtnPadding'>
-                        <div className='col-md-12 text-center'>
-                           <FlatButton backgroundColor='#FFFFFF' className='incorrectBtn' label='I Was Wrong!' secondary={ true } onClick={ event => this.getNextCard() } />
-                           <FlatButton backgroundColor='#FFFFFF' className='correctBtn' label='Correct!' secondary={ true } onClick={ event => this.addScore() } />
-                        </div>
-                     </div>
-
-                  : null
-               }
-            </div>
-         </MuiThemeProvider>
+         	</div>
       );
    }
 
@@ -82,7 +58,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-   return bindActionCreators({ setScore: setScore, shuffleDeck: shuffleDeck }, dispatch);
+   return bindActionCreators({ shuffleDeck: shuffleDeck }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(FlashcardList);
