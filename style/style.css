@@ -71,15 +71,12 @@
 }
 
 
+/* TODO: Refactor css w new flashcard-list.js component */
 
 /* ===================
 	flashcard.js 
 =================== */
 
-.studyModeScore {
-	padding-top: 50px;
-	padding-bottom: 50px;
-}
 .correctBtn {
 	float: right;
 }
@@ -96,10 +93,6 @@
 .correctIncorrectBtnPadding {
 	padding-top: 200px;
 }
-#flashcardWrapper {
-	width: 80%;
-	right: 0;
-}
 .scoreHeader {
 	color: #3730F2;
 }
@@ -112,6 +105,9 @@
 .finalScorePadding {
 	padding-top: 50px;
 	padding-bottom: 100px;
+}
+.finalScoreTitle {
+	color: #DE1242;
 }
 .scoreboard-image {
 	height: 300px;

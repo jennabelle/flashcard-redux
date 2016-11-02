@@ -1,45 +1,32 @@
 import React, { Component } from 'react';
+import { setScore } from '../actions/index';
 import { connect } from 'react-redux';
-import { browserHistory } from 'react-router';
 import { bindActionCreators } from 'redux';
-import { setScore, shuffleDeck } from '../actions/index';
 import FlipCard from 'react-flipcard';
-import FlatButton from 'material-ui/FlatButton';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class Flashcard extends Component {
 
-   constructor(props) { 
-
+   constructor(props) {
       super(props);
 
-      // shuffle current deck's cards
-      this.props.shuffleDeck( this.props.activeDeck );
-      this.state = { isFlipped: false, cardIndex: 0, currentDeck: this.props.activeDeck };
-
-      // bind context to component itself
-      this.getNextCard = this.getNextCard.bind(this);
+      this.state = { isFlipped: false };
    }
 
    showBack() {
-
       this.setState({ isFlipped: true });
    }
 
    showFront() {
-
       this.setState({ isFlipped: false });
    }
 
    handleOnFlip(flipped) {
-
       if (flipped) {
          this.refs.backButton.getDOMNode().focus();
       }
    }
  
    handleKeyDown(e) {
-
       if (this.state.isFlipped && e.keyCode === 27) {
          this.showFront();
       }
@@ -50,88 +37,71 @@ class Flashcard extends Component {
       var newScore = this.props.currentScore + 1;
 
       this.props.setScore( newScore );
-      this.getNextCard();
-   }
 
-   getNextCard() {
+      // reset to show question of next card
+      this.setState({ isFlipped: false }); 
 
-      if ( this.state.cardIndex === this.state.currentDeck['cards'].length - 1 ) {
-
-         // after all cards are shown, navigate to final score page
-         browserHistory.push('/decks/quiz/finalScore');
-      }
-      else {
-
-         // increment card index, show next card
-         let nextIndex = this.state.cardIndex + 1;
-         this.setState({ cardIndex: nextIndex, isFlipped: false });
-      }
+      // invoke method from flashcard-list.js
+      this.props.getNextCard(); 
    }
  
    render() {
 
       return (
-         <MuiThemeProvider>
-            <div id='flashcardWrapper'>
-               <div className='row studyModeScore'>
-                  <div className='col-md-6 col-md-offset-3'>
-                     <h4 className='scoreHeader'>Score: { this.props.currentScore }</h4>
-
-                    {/*
-                      The `flipped` attribute indicates whether to show the front, or the back, with `true` meaning show the back.
-                    */}
-                     <FlipCard
-                        disabled={ true }
-                        flipped={ this.state.isFlipped }
-                        onFlip={ event => this.handleOnFlip() }
-                        onKeyDown={ event => this.handleKeyDown() }>
-                        <div>
-                           <button type="button" className='flipcard img-rounded' onClick={ event => this.showBack() }>
-                              <h3 className='QApadding'>
-                                 { this.state.currentDeck.cards[ this.state.cardIndex ]['question'] }
-                              </h3>
-                              <div><small>Back</small></div>
-                           </button>
-                        </div>
-                        <div>
-                           <button type="button" className='flipcard img-rounded' ref="backButton" onClick={ event => this.showFront() }>
-                              <h3 className='QApadding'>
-                                 { this.state.currentDeck.cards[ this.state.cardIndex ]['answer'] }
-                              </h3>
-                              <div><small>Front</small></div>
-                           </button>
-                        </div>
-                     </FlipCard>
-                  </div>
+         <div className='col-md-12'>
+            {/*
+               The `flipped` attribute indicates whether to show the front, or the back, with `true` meaning show the back.
+            */}
+            <div className='col-md-12 col-md-offset-4'>
+            <FlipCard 
+               disabled={ true }
+               flipped={ this.state.isFlipped }
+               onFlip={ event => this.handleOnFlip() }
+               onKeyDown={ event => this.handleKeyDown() }>
+               <div>
+                  <button type="button" className='flipcard img-rounded' onClick={ event => this.showBack() }>
+                     <h3 className='QApadding'>
+                        { this.props.currentCard['question'] }
+                     </h3>
+                     <div><small>Back</small></div>
+                  </button>
                </div>
+               <div>
+                  <button type="button" className='flipcard img-rounded' ref="backButton" onClick={ event => this.showFront() }>
+                     <h3 className='QApadding'>
+                        { this.props.currentCard['answer'] }
+                     </h3>
+                     <div><small>Front</small></div>
+                  </button>
+               </div>
+            </FlipCard>
+            </div>
+
                {
                   this.state.isFlipped 
 
                   ? 
-                     <div className='row correctIncorrectBtnPadding'>
-                        <div className='col-md-12 text-center'>
-                           <FlatButton backgroundColor='#FFFFFF' className='incorrectBtn' label='I Was Wrong!' secondary={ true } onClick={ event => this.getNextCard() } />
-                           <FlatButton backgroundColor='#FFFFFF' className='correctBtn' label='Correct!' secondary={ true } onClick={ event => this.addScore() } />
-                        </div>
+                     <div className='correctIncorrectBtnPadding'>
+                        <button className='btn btn-default incorrectBtn' onClick={ event => this.props.getNextCard() }>I Was Wrong!</button>
+                        <button className='btn btn-default correctBtn' onClick={ event => this.addScore() }>Correct!</button>
                      </div>
 
                   : null
                }
-            </div>
-         </MuiThemeProvider>
+
+         </div>
       );
-  }
-}
+   }
+};
 
 function mapStateToProps(state) {
    return {
-      activeDeck: state.decks.decks[state.activeDeckId],
       currentScore: state.currentScore
    };
 }
 
 function mapDispatchToProps(dispatch) {
-   return bindActionCreators({ setScore: setScore, shuffleDeck: shuffleDeck }, dispatch);
+   return bindActionCreators({ setScore: setScore }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Flashcard);
