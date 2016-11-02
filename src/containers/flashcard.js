@@ -11,10 +11,11 @@ class Flashcard extends Component {
 
       this.state = { isFlipped: false };
    }
-   
+
    showBack() {
       this.setState({ isFlipped: true });
    }
+
    showFront() {
       this.setState({ isFlipped: false });
    }
@@ -26,7 +27,6 @@ class Flashcard extends Component {
    }
  
    handleKeyDown(e) {
-
       if (this.state.isFlipped && e.keyCode === 27) {
          this.showFront();
       }
@@ -38,7 +38,7 @@ class Flashcard extends Component {
 
       this.props.setScore( newScore );
 
-      // reset to show question in next card
+      // reset to show question of next card
       this.setState({ isFlipped: false }); 
 
       // invoke method from flashcard-list.js
@@ -48,10 +48,11 @@ class Flashcard extends Component {
    render() {
 
       return (
-         <div>
+         <div className='col-md-12'>
             {/*
                The `flipped` attribute indicates whether to show the front, or the back, with `true` meaning show the back.
             */}
+            <div className='col-md-12 col-md-offset-4'>
             <FlipCard 
                disabled={ true }
                flipped={ this.state.isFlipped }
@@ -74,16 +75,15 @@ class Flashcard extends Component {
                   </button>
                </div>
             </FlipCard>
+            </div>
 
                {
                   this.state.isFlipped 
 
                   ? 
                      <div className='correctIncorrectBtnPadding'>
-                        <div className='col-md-12'>
-                           <button className='btn btn-default incorrectBtn' onClick={ event => this.props.getNextCard() }>I Was Wrong!</button>
-                           <button className='btn btn-default correctBtn' onClick={ event => this.addScore() }>Correct!</button>
-                        </div>
+                        <button className='btn btn-default incorrectBtn' onClick={ event => this.props.getNextCard() }>I Was Wrong!</button>
+                        <button className='btn btn-default correctBtn' onClick={ event => this.addScore() }>Correct!</button>
                      </div>
 
                   : null

@@ -24,7 +24,7 @@ class FinalScore extends Component {
 			<div>
 				<div className='row'>
 					<div className='col-md-6 col-md-offset-3 finalScorePadding text-center'>
-						<h1>Your Final Score:<br /><br />
+						<h1 className='finalScoreTitle'>Your Final Score:<br /><br />
 						{ this.props.currentScore }
 						</h1><br />
 						{ this.renderScoreboardImg() }

@@ -20,8 +20,8 @@ class FlashcardList extends Component {
 
 		var newShuffledCards = _.shuffle( this.props.activeDeck.cards );
 		this.setState({ shuffledCards: newShuffledCards }); 
-
 	}
+
    	getNextCard() {
 
 		if ( this.state.cardIndex === this.state.shuffledCards.length - 1 ) {
@@ -36,18 +36,17 @@ class FlashcardList extends Component {
 			this.setState({ cardIndex: nextIndex });
 		}
     }
+
     render() {
 
       return (
-			<div id='flashcardWrapper'>
-               <div className='row studyModeScore'>
-                  <div className='col-md-6 col-md-offset-3'>
-                     <h4 className='scoreHeader'>Score: { this.props.currentScore }</h4>
-                     <Flashcard currentCard={ this.state.shuffledCards[this.state.cardIndex] } getNextCard={ this.getNextCard } />
-                  </div>
-               </div>
-         	</div>
-      );
+            <div className='row'>
+                <div className='col-md-12'>
+                    <h4 className='scoreHeader text-center'>Score: { this.props.currentScore }</h4>
+                 </div>
+                 <Flashcard currentCard={ this.state.shuffledCards[this.state.cardIndex] } getNextCard={ this.getNextCard } />
+            </div>
+      	);
    }
 
 };
