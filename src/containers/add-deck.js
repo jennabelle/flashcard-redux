@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addDeck } from '../actions/index';
 import { bindActionCreators } from 'redux';
-import { Link } from 'react-router';
 import { browserHistory } from 'react-router';
 
 class AddDeck extends Component {
