@@ -29,7 +29,7 @@
     "babel-preset-react": "^6.1.18",
     "babel-preset-stage-1": "^6.1.18",
     "express": "4.14.0",
-    "lodash": "^3.10.1",
+    "lodash": "^4.17.19",
     "material-ui": "0.16.1",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
